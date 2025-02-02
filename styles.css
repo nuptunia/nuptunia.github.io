@@ -1,0 +1,224 @@
+html, body {
+    margin: 0;
+    padding: 0; 
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e1e1e, #0d0d0d);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    overflow-y: auto;
+}
+
+/*scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2c2c2c;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(228, 4, 228); /*scroll bar color*/
+    border-radius: 10px;
+    border: 3px solid #2c2c2c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color:  rgb(211, 11, 211);;
+}
+
+::-webkit-scrollbar-corner {
+    background:#2c2c2c;
+}
+
+/*container uwu */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/*text on left side */
+.text-content {
+    max-width: 500px;
+    text-align: left;
+}
+
+.text-content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.text-content h1 span {
+    color: magenta
+}
+
+.text-content p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.features li::before{
+    content: "";
+    color: #8707d1;
+    font-weight: bold;
+}
+
+.new-icon {
+    background: magenta;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 7px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.image-container {
+    position: relative;
+    max-width: 600px;
+    flex-shrink: 0;
+}
+
+.fade_effect { /*makes image faded*/
+    width: 100%;
+    max-width: 600px;
+    transform: perspective(800px) rotateY(-15deg) rotateX(5deg);
+    opacity: 0.85;
+    filter: blur(3px) brightness(0.8);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /*image shadow (behind the image) so pro*/
+    transition: all 0.5s ease-in-out;
+}
+
+.fade_effect:hover {
+    opacity: 1;
+    filter: blur(1px) brightness(1);
+    transform: perspective(800px) rotateY(-12deg) rotateX(3deg) scale(1.02);
+}
+
+/*                       CARD STYLES                 */
+
+.card {
+    background: linear-gradient(145deg, rgb(25,25,25,0.9), rgba(50, 50, 50, 0.9));
+    border-radius: 20px;
+    padding: 35px 30px;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:500px;
+    transition: all 0.3s ease-in-out;
+}
+
+/*title style*/
+.card h1 {
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/*PRICE PAY UP NOW uwu :3*/ 
+.card .price {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 10px 0 20px;
+    color: #8707d1;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/*list stuff in card*/
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    line-height: 1.8;
+}
+
+/*item styleh*/
+.card ul li {
+    font-size: 1em;
+    color: #bbb;
+    padding-left: 20px;
+    position: relative;
+    font-weight: 500;
+}
+
+/*card item icon (optional) i probably wont add this but yeh*/
+.card ul li::before {
+    content: "✔";
+    color: #8707d1;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}
+
+/*button style*/
+
+.card .btn_download {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #8707d1; /**button color**/
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0px 6px 20px rgba(119, 3, 129, 0.4);
+}
+
+.card .btn_download:hover{
+    background-color: #a903af;
+    box-shadow: 0px 8px 25px rgba(119, 3, 129, 0.6);
+    transform: translateY(-3px);
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+
+/*card section at bottom*/
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+}
