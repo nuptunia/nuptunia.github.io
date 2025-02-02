@@ -2,223 +2,174 @@ html, body {
     margin: 0;
     padding: 0; 
     height: 100%;
+    width: 100%;
     overflow-x: hidden;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1e1e1e, #0d0d0d);
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle, #0e0e0e, #000000);
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    padding: 0;
-    overflow-y: auto;
+    text-align: center;
 }
 
-/*scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
-    height: 10px;
 }
-
 ::-webkit-scrollbar-track {
-    background: #2c2c2c;
-    border-radius: 10px;
+    background: #222;
 }
-
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(228, 4, 228); /*scroll bar color*/
+    background: magenta;
     border-radius: 10px;
-    border: 3px solid #2c2c2c;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background-color:  rgb(211, 11, 211);;
+    background: rgb(211, 11, 211);
 }
 
-::-webkit-scrollbar-corner {
-    background:#2c2c2c;
-}
-
-/*container uwu */
-
+/* Full-Screen Container */
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 20px;
-    padding: 20px;
+    width: 90%;
+    max-width: 1600px;
+    height: 100vh;
+    padding: 50px;
 }
 
-/*text on left side */
+/* Text Content */
 .text-content {
-    max-width: 500px;
+    max-width: 600px;
     text-align: left;
 }
-
 .text-content h1 {
-    font-size: 3rem;
-    font-weight: 600;
+    font-size: 3.5rem;
+    font-weight: bold;
 }
-
 .text-content h1 span {
-    color: magenta
+    color: magenta;
+    text-shadow: 0px 0px 15px magenta;
 }
-
 .text-content p {
-    font-size: 1rem;
-    color: #ccc;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    color: #ddd;
 }
-
 .features li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
     color: #ccc;
-}
-
-.features li::before{
-    content: "";
-    color: #8707d1;
-    font-weight: bold;
-}
-
-.new-icon {
-    background: magenta;
-    color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 3px 7px;
-    border-radius: 5px;
-    margin-left: 5px;
+    margin-bottom: 15px;
 }
 
 .image-container {
-    position: relative;
-    max-width: 600px;
-    flex-shrink: 0;
+    max-width: 45%;
+    transform: rotate(10deg) scale(0.9);
+    transition: transform 0.7s ease-in-out, filter 0.7s ease-in-out;
+    filter: blur(8px) brightness(0.7);
+    perspective: 1200px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(255, 0, 255, 0.2);
 }
 
-.fade_effect { /*makes image faded*/
+.image-container:hover {
+    filter: blur(0px) brightness(1);
+    animation: breathing 5s infinite ease-in-out;
+    box-shadow: 0px 15px 50px rgba(255, 0, 255, 0.4);
+}
+
+.fade_effect {
     width: 100%;
-    max-width: 600px;
-    transform: perspective(800px) rotateY(-15deg) rotateX(5deg);
-    opacity: 0.85;
-    filter: blur(3px) brightness(0.8);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /*image shadow (behind the image) so pro*/
-    transition: all 0.5s ease-in-out;
+    transition: transform 0.7s ease-in-out, filter 0.7s ease-in-out;
+    filter: drop-shadow(0px 0px 20px magenta);
+    border-radius: 15px;
 }
 
-.fade_effect:hover {
-    opacity: 1;
-    filter: blur(1px) brightness(1);
-    transform: perspective(800px) rotateY(-12deg) rotateX(3deg) scale(1.02);
+.image-container:hover .fade_effect {
+    transform: rotateY(-10deg) scale(1.02);
 }
 
-/*                       CARD STYLES                 */
+@keyframes breathing {
+    0% {
+        transform: rotate(5deg) scale(1);
+    }
+    50% {
+        transform: rotate(5deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(5deg) scale(1);
+    }
+}
 
-.card {
-    background: linear-gradient(145deg, rgb(25,25,25,0.9), rgba(50, 50, 50, 0.9));
-    border-radius: 20px;
-    padding: 35px 30px;
-    max-width: 450px;
-    text-align: center;
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+/* Cards Section */
+.cards-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height:500px;
-    transition: all 0.3s ease-in-out;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 50px;
 }
-
-/*title style*/
+.card {
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0px 10px 50px rgba(255, 0, 255, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-10px) scale(1.07);
+    box-shadow: 0px 15px 60px rgba(255, 0, 255, 0.5);
+}
 .card h1 {
-    font-size: 1.1em;
-    letter-spacing: 1px;
-    color: #fff;
-    margin-bottom: 20px;
+    font-size: 1.4em;
     text-transform: uppercase;
     font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-
-/*PRICE PAY UP NOW uwu :3*/ 
 .card .price {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-weight: bold;
-    margin: 10px 0 20px;
-    color: #8707d1;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    color: magenta;
+    text-shadow: 0px 0px 15px magenta;
 }
-
-/*list stuff in card*/
+.card .neon {
+    color: cyan;
+    text-shadow: 0px 0px 20px cyan;
+}
 .card ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px;
-    line-height: 1.8;
+    line-height: 2;
 }
-
-/*item styleh*/
 .card ul li {
-    font-size: 1em;
+    font-size: 1.2rem;
     color: #bbb;
-    padding-left: 20px;
-    position: relative;
-    font-weight: 500;
 }
 
-/*card item icon (optional) i probably wont add this but yeh*/
-.card ul li::before {
-    content: "✔";
-    color: #8707d1;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    font-size: 1.2em;
-}
-
-/*button style*/
-
-.card .btn_download {
+/* Buttons */
+.btn_download {
     display: inline-block;
-    padding: 15px 30px;
-    background: #8707d1; /**button color**/
+    padding: 18px 35px;
+    background: magenta;
     color: white;
-    border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     font-weight: bold;
     text-decoration: none;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-    box-shadow: 0px 6px 20px rgba(119, 3, 129, 0.4);
+    font-size: 1.3em;
+    transition: 0.3s ease;
+    box-shadow: 0px 0px 20px magenta;
 }
-
-.card .btn_download:hover{
+.btn_download:hover {
     background-color: #a903af;
-    box-shadow: 0px 8px 25px rgba(119, 3, 129, 0.6);
-    transform: translateY(-3px);
+    box-shadow: 0px 0px 30px magenta;
+    transform: scale(1.1);
 }
-
-.card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.7);
-    transition: all 0.3s ease-in-out;
-}
-
-/*card section at bottom*/
-.cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-    margin-top: 40px;
-    padding: 20px;
+.coming_soon {
+    background: gray;
+    box-shadow: 0px 0px 15px gray;
+    cursor: not-allowed;
 }
